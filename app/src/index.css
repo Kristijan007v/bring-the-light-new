@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-gray-900 font-body text-xl;
+}
+
+.link {
+  @apply hover:underline;
+}
+
+.btn {
+  @apply pt-2 pr-4 pb-2 pl-4 bg-white text-black rounded-md font-bold hover:ease-in duration-300 hover:bg-gradient-to-r from-blue-600 to-yellow-500 hover:text-white;
+}
+
+.special-hover {
+  @apply hover:ease-in duration-300 hover:bg-gradient-to-r from-blue-600 to-yellow-500 hover:text-white;
+}
+
+.heading {
+  @apply text-3xl lg:text-4xl text-white font-bold border-b-8 pb-4 w-2/6;
+}
+
+.form-higlight {
+  @apply hover:underline;
+}
+
+.h-center {
+  @apply m-auto text-center;
+}
+
+.input-text {
+  @apply p-3 rounded-md bg-gray-800;
+}
