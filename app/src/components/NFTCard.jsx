@@ -1,11 +1,20 @@
 import React from "react";
 import Button from "./Buttons/Button";
 
-export default function NFTCard({ name, price }) {
+export default function NFTCard({ name, price, highlight, highlightText }) {
   return (
     <div>
       <div className="text-center">
-        <div className="bg-gray-700 p-8 rounded-md text-white flex flex-col gap-10 text-3xl font-bold">
+        {highlight == "yes" && (
+          <p className="text-blue-600 font-bold text-2xl mb-4">
+            {highlightText}
+          </p>
+        )}
+        <div
+          className={`bg-gray-700 pt-12 pb-12 rounded-md text-white flex flex-col gap-10 text-3xl font-bold ${
+            highlight ? "border-4 border-blue-600" : "mt-12"
+          }`}
+        >
           <p className="m-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"

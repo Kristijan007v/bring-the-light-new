@@ -14,9 +14,9 @@ export default function Footer() {
     <div>
       {" "}
       <footer className="text-white p-6">
-        <div className="bg-gradient-to-r p-1 from-blue-600 to-yellow-500 rounded-md mb-6">
-          <div className="bg-gray-700 text-center p-10 rounded-md border-grad relative">
-            <p className="font-bold">20.456 people have brought the light.</p>
+        <div className="bg-gradient-to-r p-1 from-blue-600 to-yellow-500 rounded-md mb-6 w-full lg:w-3/5 m-auto">
+          <div className="bg-gray-700 text-center pt-14 pr-10 pb-14 pl-10 rounded-md border-grad relative">
+            <p className="text-2xl">20.456 people have brought the light.</p>
             <span className="absolute bottom-4 right-4">
               <svg
                 width="22"
@@ -33,17 +33,17 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className="text-center flex flex-col gap-6">
-          <p className="font-bold">Stay up to date</p>
+        <div className="text-center flex flex-col gap-8">
+          <p className="heading-2">Stay up to date</p>
           <div className="w-full flex gap-2 justify-center">
             <input
               className="input-text w-full lg:w-1/5"
               type="text"
               placeholder="Email address"
             />
-            <Button text={"APPLY"} />
+            <Button text={"APPLY"} onclick={NewsletterNotify} />
           </div>
-          <p className="font-bold">Follow us on</p>
+          <p className="heading-2">Follow us on</p>
           <div className="flex gap-4 justify-center">
             <Twitter />
 

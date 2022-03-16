@@ -1,17 +1,18 @@
 import React from "react";
 import header from "../img/header.jpg";
 import Button from "./Buttons/Button";
+import TextBox from "./TextBox";
 
 export default function Header() {
   return (
-    <div>
+    <div className="w-full lg:w-4/6 m-auto">
       <header className="text-white p-6">
         <h1 className="text-center heading h-center">
           Bring the light to Ukraine!
         </h1>
-        <div className="flex flex-col lg:flex lg:flex-row gap-6 m-6">
+        <div className="flex flex-col lg:flex lg:flex-row gap-6 m-6 items-center justify-center">
           <img
-            className="rounded-md shadow-xl w-2/4"
+            className="rounded-md shadow-xl w-full lg:w-80 h-auto"
             src={header}
             alt="Header image"
           />
@@ -21,7 +22,9 @@ export default function Header() {
             voluptates assumenda enim nobis quod maxime. Voluptas, eos nobis.
           </p>
         </div>
-        <Button style={""} text={"MINT NOW"} />
+        <div className="flex items-center justify-center">
+          <Button style={""} text={"MINT NOW"} />
+        </div>
       </header>
     </div>
   );

@@ -5,57 +5,73 @@ import exampleImage3 from "../img/example04.jpg";
 import exampleImage4 from "../img/example05.jpg";
 import exampleImage5 from "../img/example06.jpg";
 import exampleImage6 from "../img/example10.jpg";
+import GalleryImage from "./GalleryImage";
 
 export default function Gallery() {
   return (
-    <div class="relative rounded-xl scrollbar-hide overflow-auto">
-      <p className="heading">Gallery</p>
-      <div class="flex ml-[50%] items-end justify-start pt-10 mb-6">
-        {/* <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">
-          snap point
-        </div> */}
-        {/* <div class="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div> */}
-      </div>
-      <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-14 scrollbar-hide">
+    <div class="relative rounded-xl scrollbar-hide overflow-auto w-full lg:w-4/6 m-auto">
+      <p className="heading text-center lg:text-left mb-10">Gallery</p>
+
+      <div class="relative w-full flex gap-8 snap-x snap-mandatory overflow-x-auto pb-14 scrollbar-hide rounded-md">
         <div class="snap-center shrink-0">
           <div class="shrink-0 w-4 sm:w-48"></div>
         </div>
-        <div class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <img
-            class="shrink-0 w-80 h-40 object-cover rounded-lg shadow-xl bg-white"
-            src={exampleImage1}
-          />
-        </div>
-        <div class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <img
-            class="shrink-0 w-80 h-40 object-cover rounded-lg shadow-xl bg-white"
-            src={exampleImage2}
-          />
-        </div>
-        <div class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <img
-            class="shrink-0 w-80 h-40 object-cover rounded-lg shadow-xl bg-white"
-            src={exampleImage3}
-          />
-        </div>
-        <div class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <img
-            class="shrink-0 w-80 h-40 object-cover rounded-lg shadow-xl bg-white"
-            src={exampleImage4}
-          />
-        </div>
-        <div class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <img
-            class="shrink-0 w-80 h-40 object-cover rounded-lg shadow-xl bg-white"
-            src={exampleImage5}
-          />
-        </div>
-        <div class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <img
-            class="shrink-0 w-80 h-40 object-cover rounded-lg shadow-xl bg-white"
-            src={exampleImage6}
-          />
-        </div>
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage2}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto border-4 border-blue-600"}
+          src={exampleImage3}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage4}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage5}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+        <GalleryImage
+          style={"w-80 h-auto"}
+          src={exampleImage1}
+          alt={"Slika 1"}
+        />
+
         <div class="snap-center shrink-0">
           <div class="shrink-0 w-4 sm:w-48"></div>
         </div>

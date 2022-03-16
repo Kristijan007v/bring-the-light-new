@@ -1,15 +1,17 @@
-import WalletBalance from "./WalletBalance";
-import { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import BringTheLightUA from "../artifacts/contracts/MyNFT.sol/BringTheLightUA.json";
 import ArrowUp from "./Buttons/ArrowUp";
-import NavBar from "./NavBar";
+import Button from "./Buttons/Button";
 import Footer from "./Footer";
-import Header from "./Header";
-import toast, { Toaster } from "react-hot-toast";
 import Gallery from "./Gallery";
+import Header from "./Header";
 import MintNFT from "./MintNFT";
-import FlagLine from "./FlagLine";
+import NavBar from "./NavBar";
+import Popup from "./Popup";
+import Share from "./Social/Share";
+import WalletBalance from "./WalletBalance";
 
 const notify = () => toast.success("Here is your toast.");
 
@@ -116,11 +118,11 @@ function Home() {
       <Gallery />
 
       {/* Main */}
-      <MintNFT />
+      <MintNFT id={"mint-nfts"} />
 
-      <button className="text-white" onClick={notify}>
+      {/* <button className="text-white" onClick={notify}>
         Test notification
-      </button>
+      </button> */}
 
       {Array(totalMinted + 1)
         .fill(0)
@@ -135,8 +137,48 @@ function Home() {
       {/* Fixed buttons */}
       <ArrowUp />
 
+      {/* Pop ups */}
+      <Popup
+        test={"hidden"}
+        heading={"Contact us"}
+        content={
+          <form
+            className="flex flex-col gap-4"
+            action="http://localhost:8080/send-email"
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+          >
+            <label className="heading-2" htmlFor="Name">
+              Name:{" "}
+            </label>
+            <input className="input-text" type="text" name="name" id="name" />
+            <label className="heading-2" htmlFor="email">
+              E-mail:
+            </label>
+            <input className="input-text" type="text" name="email" id="email" />
+            <label className="heading-2" htmlFor="message">
+              Message:{" "}
+            </label>
+            <textarea
+              className="input-text"
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <Button text={"SEND"} type={"submit"} />
+          </form>
+        }
+      />
+
       {/* Required for the notifcations to work*/}
       <Toaster
+        containerStyle={{
+          top: 20,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
         toastOptions={{
           className: "",
           style: {

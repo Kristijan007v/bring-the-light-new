@@ -17,7 +17,7 @@ body {
 }
 
 .btn {
-  @apply pt-2 pr-4 pb-2 pl-4 bg-white text-black rounded-md font-bold hover:ease-in duration-300 hover:bg-gradient-to-r from-blue-600 to-yellow-500 hover:text-white;
+  @apply pt-4 pr-6 pb-4 pl-6 bg-white text-black rounded-md font-bold hover:ease-in duration-300 hover:bg-gradient-to-r from-blue-600 to-yellow-500 hover:text-white;
 }
 
 .special-hover {
@@ -25,7 +25,11 @@ body {
 }
 
 .heading {
-  @apply text-3xl lg:text-4xl text-white font-bold border-b-8 pb-4 w-2/6;
+  @apply text-3xl lg:text-4xl text-white font-bold border-b-8 pb-4 w-4/5 lg:w-3/5;
+}
+
+.heading-2 {
+  @apply text-3xl lg:text-2xl text-white font-bold;
 }
 
 .form-higlight {
@@ -37,5 +41,5 @@ body {
 }
 
 .input-text {
-  @apply p-3 rounded-md bg-gray-800;
+  @apply p-3 rounded-md bg-gray-800 resize-none text-white focus:outline-none focus:outline-blue-600;
 }

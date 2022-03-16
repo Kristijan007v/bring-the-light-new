@@ -16,7 +16,7 @@ export default function NavBar() {
         <BrowserView>
           <ul className="flex gap-6">
             <li>
-              <a className="link" href="#">
+              <a className="link" href="#mint-nfts">
                 Mint
               </a>
             </li>

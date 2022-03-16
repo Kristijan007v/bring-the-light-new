@@ -4,7 +4,11 @@ module.exports = {
     fontFamily: {
       body: ["Fredoka", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "save-ua": "url('/img/header.jpg')",
+      },
+    },
   },
   plugins: [require("tailwind-scrollbar-hide")],
 };
