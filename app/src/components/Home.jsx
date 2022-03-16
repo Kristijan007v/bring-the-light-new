@@ -1,10 +1,12 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import BringTheLightUA from "../artifacts/contracts/MyNFT.sol/BringTheLightUA.json";
 import ArrowUp from "./Buttons/ArrowUp";
 import Button from "./Buttons/Button";
 import Footer from "./Footer";
+import Form from "./Form";
 import Gallery from "./Gallery";
 import Header from "./Header";
 import MintNFT from "./MintNFT";
@@ -64,7 +66,7 @@ function NFTImage({ tokenId, getCount }) {
     alert(uri);
   }
   return (
-    <button className="btn" onClick={mintToken}>
+    <button className="btn hidden" onClick={mintToken}>
       MINT TEST
     </button>
   );
@@ -80,6 +82,10 @@ function Home() {
       MetamaskNotifyError();
     }
   });
+
+  /* Handle form submits */
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   const [totalMinted, setTotalMinted] = useState(0);
   useEffect(() => {
@@ -105,7 +111,7 @@ function Home() {
       <Gallery />
 
       {/* Main */}
-      <MintNFT id={"mint-nfts"} />
+      <MintNFT id={"mint-nfts"} style={"mt-10"} />
 
       {/* <button className="text-white" onClick={notify}>
         Test notification

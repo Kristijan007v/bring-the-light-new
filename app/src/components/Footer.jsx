@@ -15,7 +15,9 @@ export default function Footer() {
       {" "}
       <footer className="p-6 text-white">
         <div className="m-auto mb-6 w-full rounded-md bg-gradient-to-r from-blue-600 to-yellow-500 p-1 lg:w-3/5">
-          <div className="border-grad relative rounded-md bg-gray-700 pt-14 pr-10 pb-14 pl-10 text-center">
+          <div
+            className={`border-grad relative rounded-md bg-gray-700 pt-14 pr-10 pb-14 pl-10 text-center`}
+          >
             <p className="text-2xl">20.456 people have brought the light.</p>
             <span className="absolute bottom-4 right-4">
               <svg

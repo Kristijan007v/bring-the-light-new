@@ -13,11 +13,11 @@ body {
 }
 
 .link {
-  @apply hover:underline;
+  @apply hover:underline hover:duration-300 hover:ease-in;
 }
 
 .btn {
-  @apply rounded-md bg-white from-blue-600 to-yellow-500 pt-4 pr-6 pb-4 pl-6 font-bold text-black duration-300 hover:bg-gradient-to-r hover:text-white hover:ease-in;
+  @apply rounded-md bg-white pt-4 pr-6 pb-4 pl-6 font-bold text-black hover:bg-gradient-to-r hover:from-blue-600 hover:to-yellow-500 hover:text-white hover:duration-300 hover:ease-in;
 }
 
 .special-hover {
@@ -32,6 +32,14 @@ body {
   @apply text-3xl font-bold text-white lg:text-2xl;
 }
 
+.p-basic {
+  @apply text-2xl text-white;
+}
+
+.p-bold {
+  @apply text-2xl font-bold text-white;
+}
+
 .form-higlight {
   @apply hover:underline;
 }
@@ -42,4 +50,25 @@ body {
 
 .input-text {
   @apply resize-none rounded-md bg-gray-800 p-3 text-white focus:outline-none focus:outline-blue-600;
+}
+
+.link-underline {
+  padding-bottom: 0.3rem;
+  border-bottom-width: ;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#f2c, #f2c);
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
 }
