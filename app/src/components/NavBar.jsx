@@ -11,7 +11,7 @@ import MenuButton from "./Buttons/MenuButton";
 export default function NavBar() {
   return (
     <div className="sticky top-0 z-10">
-      <nav className="bg-gray-800/60 backdrop-blur-xl p-6 text-white flex justify-between">
+      <nav className="flex justify-between bg-gray-800/60 p-6 text-white backdrop-blur-xl">
         <span>BringTheLight 💡</span>
         <BrowserView>
           <ul className="flex gap-6">

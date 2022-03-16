@@ -3,9 +3,9 @@ import NFTCard from "./NFTCard";
 
 export default function MintNFT({ id }) {
   return (
-    <div id={id} className="w-full lg:w-4/6 m-auto">
+    <div id={id} className="m-auto w-full lg:w-4/6">
       <p className="heading h-center">Mint to Help</p>
-      <main className="grid grid-cols-1 lg:grid-cols-3 m-6 gap-6">
+      <main className="m-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
         <NFTCard name={"BASIC"} price={"10"} />
         <NFTCard
           name={"RARE"}

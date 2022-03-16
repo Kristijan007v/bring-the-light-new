@@ -6,12 +6,12 @@ export default function NFTCard({ name, price, highlight, highlightText }) {
     <div>
       <div className="text-center">
         {highlight == "yes" && (
-          <p className="text-blue-600 font-bold text-2xl mb-4">
+          <p className="mb-4 text-2xl font-bold text-blue-600">
             {highlightText}
           </p>
         )}
         <div
-          className={`bg-gray-700 pt-12 pb-12 rounded-md text-white flex flex-col gap-10 text-3xl font-bold ${
+          className={`flex flex-col gap-10 rounded-md bg-gray-700 pt-12 pb-12 text-3xl font-bold text-white ${
             highlight ? "border-4 border-blue-600" : "mt-12"
           }`}
         >

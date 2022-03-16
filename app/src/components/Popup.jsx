@@ -4,17 +4,17 @@ import Button from "./Buttons/Button";
 export default function Popup({ heading, style, content, test }) {
   return (
     <div
-      className={`z-20 fixed bg-gray-800/60 backdrop-blur-xl top-0 right-0 bottom-0 left-0 ${test}`}
+      className={`fixed top-0 right-0 bottom-0 left-0 z-20 bg-gray-800/60 backdrop-blur-xl ${test}`}
     >
       <div className="flex items-center justify-center">
         <Button text={"CLOSE"} style={"m-6"} />
       </div>
       <div
-        className={`bg-gray-900 lg:rounded-md p-8 w-full lg:w-2/4 m-auto ${style}`}
+        className={`m-auto w-full bg-gray-900 p-8 lg:w-2/4 lg:rounded-md ${style}`}
       >
         <p className="heading h-center">{heading}</p>
         {/* Insert desired content */}
-        <div className="p-4 mt-2">{content}</div>
+        <div className="mt-2 p-4">{content}</div>
       </div>
     </div>
   );

@@ -1,20 +1,19 @@
 import React from "react";
-import exampleImage1 from "../img/header.jpg";
 import exampleImage2 from "../img/example03.jpg";
 import exampleImage3 from "../img/example04.jpg";
 import exampleImage4 from "../img/example05.jpg";
 import exampleImage5 from "../img/example06.jpg";
-import exampleImage6 from "../img/example10.jpg";
+import exampleImage1 from "../img/header.jpg";
 import GalleryImage from "./GalleryImage";
 
 export default function Gallery() {
   return (
-    <div class="relative rounded-xl scrollbar-hide overflow-auto w-full lg:w-4/6 m-auto">
-      <p className="heading text-center lg:text-left mb-10">Gallery</p>
+    <div class="relative m-auto w-full overflow-auto rounded-xl scrollbar-hide lg:w-4/6">
+      <p className="heading mb-10 text-center lg:text-left">Gallery</p>
 
-      <div class="relative w-full flex gap-8 snap-x snap-mandatory overflow-x-auto pb-14 scrollbar-hide rounded-md">
-        <div class="snap-center shrink-0">
-          <div class="shrink-0 w-4 sm:w-48"></div>
+      <div class="relative flex w-full snap-x snap-mandatory gap-8 overflow-x-auto rounded-md pb-14 scrollbar-hide">
+        <div class="shrink-0 snap-center">
+          <div class="w-4 shrink-0 sm:w-48"></div>
         </div>
         <GalleryImage
           style={"w-80 h-auto"}
@@ -72,8 +71,8 @@ export default function Gallery() {
           alt={"Slika 1"}
         />
 
-        <div class="snap-center shrink-0">
-          <div class="shrink-0 w-4 sm:w-48"></div>
+        <div class="shrink-0 snap-center">
+          <div class="w-4 shrink-0 sm:w-48"></div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ export default function ArrowUp() {
     <div>
       <a
         href="#up"
-        className="fixed bottom-8 right-6 bg-white p-3 rounded-full cursor-pointer special-hover"
+        className="special-hover fixed bottom-8 right-6 cursor-pointer rounded-full bg-white p-3"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

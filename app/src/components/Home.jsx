@@ -10,8 +10,6 @@ import Header from "./Header";
 import MintNFT from "./MintNFT";
 import NavBar from "./NavBar";
 import Popup from "./Popup";
-import Share from "./Social/Share";
-import WalletBalance from "./WalletBalance";
 
 const notify = () => toast.success("Here is your toast.");
 
@@ -66,21 +64,9 @@ function NFTImage({ tokenId, getCount }) {
     alert(uri);
   }
   return (
-    <div className="hidden">
-      <img
-        src={
-          isMinted
-            ? imageURI
-            : "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640"
-        }
-      ></img>
-      <h5>ID #{tokenId}</h5>
-      {!isMinted ? (
-        <button onClick={mintToken}>Mint</button>
-      ) : (
-        <button onClick={getURI}>Taken! Show URI</button>
-      )}
-    </div>
+    <button className="btn" onClick={mintToken}>
+      MINT TEST
+    </button>
   );
 }
 
@@ -88,9 +74,9 @@ function Home() {
   /* Check if the user has Metamask installed */
   useEffect(() => {
     if (window.ethereum) {
-      console.log("Check for Metamask.");
       MetamaskNotifyConnected();
     } else {
+      console.log("Metamask is not installed.");
       MetamaskNotifyError();
     }
   });
@@ -110,6 +96,7 @@ function Home() {
     <div>
       {/* Go up */}
       <div id="up"></div>
+
       <NavBar />
 
       {/* Header */}
@@ -146,7 +133,7 @@ function Home() {
             className="flex flex-col gap-4"
             action="http://localhost:8080/send-email"
             method="post"
-            enctype="application/x-www-form-urlencoded"
+            encType="application/x-www-form-urlencoded"
           >
             <label className="heading-2" htmlFor="Name">
               Name:{" "}
