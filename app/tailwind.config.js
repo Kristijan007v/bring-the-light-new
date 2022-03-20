@@ -6,7 +6,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "header-image": "url('../src/img/example03.jpg')",
+        "header-image": "url('../src/img/header.jpg')",
         "basic-image": "url('../src/img/example03.jpg')",
         "rare-image": "url('../src/img/example04.jpg')",
         "special-image": "url('../src/img/example05.jpg')",

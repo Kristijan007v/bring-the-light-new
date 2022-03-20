@@ -4,7 +4,7 @@ import Button from "./Buttons/Button";
 
 export default function Header() {
   return (
-    <div className="h-auto w-full bg-opacity-10 bg-header-image bg-cover bg-fixed bg-center lg:h-screen">
+    <div className="h-auto w-full bg-opacity-10 bg-header-image bg-cover bg-fixed lg:h-screen">
       <header className=" m-auto h-screen w-full bg-gradient-to-r from-blue-600/60 to-yellow-500/60 p-6 text-white backdrop-blur-sm">
         <h1 className="heading h-center text-center">
           Bring the light to Ukraine!
