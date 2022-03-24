@@ -1,9 +1,22 @@
 import React from "react";
 
-export default function TextBox({ text, style, type }) {
+export default function TextBox({
+  heading,
+  text,
+  bg,
+  textColor,
+  style,
+  type,
+  headingStyle,
+  components,
+  specialHover,
+}) {
   return (
     <div
-      className={`m-4 rounded-md bg-gray-800 p-6 ${style} ${
+      className={`m-2 rounded-md ${
+        specialHover == "yes" &&
+        "textbox-hover cursor-pointer hover:bg-gray-800"
+      } ${type == "special" ? bg : "bg-gray-800"} p-6 ${style} ${
         type == "info" && "flex gap-4"
       } ${type == "question" && "flex gap-4"} ${
         type == "warning" && "flex gap-4 bg-red-500"
@@ -57,7 +70,17 @@ export default function TextBox({ text, style, type }) {
           </svg>
         </span>
       )}
-      <p className="p-basic">{text}</p>
+      <p
+        className={` ${
+          bg == "bg-white" ? "heading-2-gray" : "heading-2"
+        } mb-2 ${textColor} ${headingStyle}`}
+      >
+        {heading}
+      </p>
+      <p className={` ${bg == "bg-white" ? "p-gray" : "p-basic"} ${textColor}`}>
+        {text}
+      </p>
+      {components}
     </div>
   );
 }

@@ -1,8 +1,12 @@
 import React from "react";
 
-export default function ArrowLeft() {
+export default function ArrowLeft({ onclick }) {
   return (
-    <span className="special-hover cursor-pointer rounded-full bg-white p-4">
+    <button
+      onClick={onclick}
+      className="special-hover cursor-pointer rounded-full bg-white p-4"
+      aria-label="Gallery Arrow Left"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6"
@@ -17,6 +21,6 @@ export default function ArrowLeft() {
           d="M15 19l-7-7 7-7"
         />
       </svg>
-    </span>
+    </button>
   );
 }

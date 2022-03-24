@@ -1,129 +1,72 @@
-import { ethers } from "ethers";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
-import BringTheLightUA from "../artifacts/contracts/MyNFT.sol/BringTheLightUA.json";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import ArrowUp from "./Buttons/ArrowUp";
 import Button from "./Buttons/Button";
+import FAQ from "./FAQ";
 import Footer from "./Footer";
-import Form from "./Form";
 import Gallery from "./Gallery";
 import Header from "./Header";
+import MenuMobile from "./MenuMobile";
 import MintNFT from "./MintNFT";
 import NavBar from "./NavBar";
 import Popup from "./Popup";
 
-const notify = () => toast.success("Here is your toast.");
-
-const MetamaskNotifyConnected = () =>
-  toast.success("Metamask Wallet connected.");
-const MetamaskNotifyError = () => toast.error("Metamask Wallet not detected.");
-
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-// get the end user
-const signer = provider.getSigner();
-
-// get the smart contract
-const contract = new ethers.Contract(
-  contractAddress,
-  BringTheLightUA.abi,
-  signer
-);
-
-function NFTImage({ tokenId, getCount }) {
-  const contentId = "QmXKkJJ24CHUVH2D3XgaT8ynD5CLVAZ3kFuhT8axaL3M4L";
-  const metadataURI = `${contentId}/${tokenId}.json`;
-  const imageURI = `https://gateway.pinata.cloud/ipfs/${contentId}/${tokenId}.png`;
-
-  const [isMinted, setIsMinted] = useState(false);
-  useEffect(() => {
-    getMintedStatus();
-  }, [isMinted]);
-
-  const getMintedStatus = async () => {
-    const result = await contract.isContentOwned(metadataURI);
-    console.log(result);
-    setIsMinted(result);
-  };
-
-  const mintToken = async () => {
-    const connection = contract.connect(signer);
-    const addr = connection.address;
-    const result = await contract.payToMint(addr, metadataURI, {
-      value: ethers.utils.parseEther("0.05"),
-    });
-
-    await result.wait();
-    getMintedStatus();
-    getCount();
-  };
-
-  async function getURI() {
-    const uri = await contract.tokenURI(tokenId);
-    alert(uri);
-  }
-  return (
-    <button className="btn hidden" onClick={mintToken}>
-      MINT TEST
-    </button>
-  );
-}
-
 function Home() {
-  /* Check if the user has Metamask installed */
-  useEffect(() => {
-    if (window.ethereum) {
-      MetamaskNotifyConnected();
-    } else {
-      console.log("Metamask is not installed.");
-      MetamaskNotifyError();
-    }
-  });
+  const [showMenu, setshowMenu] = useState(false);
 
-  /* Handle form submits */
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const [totalMinted, setTotalMinted] = useState(0);
-  useEffect(() => {
-    getCount();
-  }, []);
-
-  const getCount = async () => {
-    const count = await contract.count();
-    console.log(parseInt(count));
-    setTotalMinted(parseInt(count));
+  const close = () => {
+    setModalOpen(false);
+    enableBodyScroll(document);
   };
+  const open = () => {
+    setModalOpen(true);
+    disableBodyScroll(document);
+  };
+
+  modalOpen ? enableBodyScroll(document) : disableBodyScroll(document);
 
   return (
     <div>
-      {/* Go up */}
-      <div id="up"></div>
-
-      <NavBar />
+      <NavBar
+        openContact={open}
+        openMenu={() => {
+          setshowMenu(!showMenu);
+        }}
+      />
 
       {/* Header */}
       <Header />
+
+      {showMenu && (
+        <MenuMobile
+          closeMenu={() => {
+            setshowMenu(!showMenu);
+          }}
+          openContact={open}
+        />
+      )}
 
       <Gallery />
 
       {/* Main */}
       <MintNFT id={"mint-nfts"} style={"mt-10"} />
 
-      {/* <button className="text-white" onClick={notify}>
-        Test notification
-      </button> */}
-
-      {Array(totalMinted + 1)
-        .fill(0)
-        .map((_, i) => (
-          <div key={i}>
-            <NFTImage tokenId={i} getCount={getCount} />
-          </div>
-        ))}
+      {/* FAQ */}
+      <section className="mt-10 mb-10">
+        <h2 className="heading-2 mb-10 text-center">FAQ</h2>
+        <div className="m-auto grid w-5/6 grid-cols-1 gap-4 lg:w-3/5 lg:grid-cols-2">
+          <FAQ text={"How are these images made?"} />
+          <FAQ text={"How are these images made?"} />
+          <FAQ text={"How are these images made?"} />
+          <FAQ text={"How are these images made?"} />
+          <FAQ text={"How are these images made?"} />
+          <FAQ text={"How are these images made?"} />
+        </div>
+      </section>
 
       {/* Footer */}
       <Footer />
@@ -131,38 +74,65 @@ function Home() {
       <ArrowUp />
 
       {/* Pop ups */}
-      <Popup
-        test={"hidden"}
-        heading={"Contact us"}
-        content={
-          <form
-            className="flex flex-col gap-4"
-            action="http://localhost:8080/send-email"
-            method="post"
-            encType="application/x-www-form-urlencoded"
-          >
-            <label className="heading-2" htmlFor="Name">
-              Name:{" "}
-            </label>
-            <input className="input-text" type="text" name="name" id="name" />
-            <label className="heading-2" htmlFor="email">
-              E-mail:
-            </label>
-            <input className="input-text" type="text" name="email" id="email" />
-            <label className="heading-2" htmlFor="message">
-              Message:{" "}
-            </label>
-            <textarea
-              className="input-text"
-              name="message"
-              id="message"
-              cols="30"
-              rows="10"
-            ></textarea>
-            <Button text={"SEND"} type={"submit"} />
-          </form>
-        }
-      />
+      <AnimatePresence
+        // Disable any initial animations on children that
+        // are present when the component is first rendered
+        initial={false}
+        // Only render one component at a time.
+        // The exiting component will finish its exit
+        // animation before entering component is rendered
+        exitBeforeEnter={true}
+        // Fires when all exiting nodes have completed animating out
+        onExitComplete={() => null}
+      >
+        {modalOpen && (
+          <Popup
+            heading={"Contact us"}
+            closePopup={close}
+            content={
+              <form
+                className="flex flex-col gap-4"
+                action="https://getform.io/f/8d280134-4cfd-45ea-9f5a-b01dce516dff"
+                method="POST"
+                encType="application/x-www-form-urlencoded"
+              >
+                <label className="heading-2" htmlFor="Name">
+                  Name:{" "}
+                </label>
+                <input
+                  className="input-text"
+                  type="text"
+                  name="name"
+                  id="name"
+                />
+                <label className="heading-2" htmlFor="email">
+                  E-mail:
+                </label>
+                <input
+                  className="input-text"
+                  type="text"
+                  name="email"
+                  id="email"
+                />
+                <label className="heading-2" htmlFor="message">
+                  Message:{" "}
+                </label>
+                <textarea
+                  className="input-text"
+                  name="message"
+                  id="message"
+                  cols="20"
+                  rows="5"
+                ></textarea>
+                <Button text={"SEND"} type={"submit"} />
+              </form>
+            }
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Privacy Policy */}
+      {/* Mobile menu */}
 
       {/* Required for the notifcations to work*/}
       <Toaster

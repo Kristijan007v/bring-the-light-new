@@ -9,15 +9,17 @@ export default function NFTCard({
   style,
 }) {
   return (
-    <div>
-      <div className={`rounded-md bg-contain  bg-center text-center ${style}`}>
-        {highlight == "yes" && (
-          <p className="mb-4 text-2xl font-bold text-blue-600">
-            {highlightText}
-          </p>
-        )}
+    <div className="sm:snap-child">
+      {highlight == "yes" && (
+        <p className="mb-4 text-center text-2xl font-bold text-blue-600">
+          {highlightText}
+        </p>
+      )}
+      <div
+        className={`h-full rounded-md bg-contain bg-center text-center ${style}`}
+      >
         <div
-          className={`flex flex-col gap-10 rounded-md bg-gray-700/50 pt-12 pb-12 text-3xl font-bold text-white backdrop-blur-md ${
+          className={`flex h-full w-full flex-col gap-10 rounded-md border-2 bg-gray-700/50 pt-12 pb-12 text-3xl font-bold text-white backdrop-blur-md ${
             highlight ? "border-4 border-blue-600" : "mt-12"
           }`}
         >

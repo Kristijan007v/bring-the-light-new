@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import FlagLine from "./FlagLine";
 import toast, { Toaster } from "react-hot-toast";
 import Discord from "./Social/Discord";
 import Twitter from "./Social/Twitter";
 import Instagram from "./Social/Instagram";
 import Button from "./Buttons/Button";
-
-const NewsletterNotify = () =>
-  toast.success("You have succesfully applied to our Newsletter. Hurray!");
+import TextBox from "./TextBox";
 
 export default function Footer() {
+  const [query, setQuery] = useState({
+    name: "",
+    email: "",
+  });
+
+  // Update inputs value
+  const handleParam = () => (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setQuery((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  // Form Submit function
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    Object.entries(query).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    fetch(
+      "https://getform.io/https://getform.io/f/4ca92670-a5be-4daa-ba6a-83eebcce170b",
+      {
+        method: "POST",
+        body: formData,
+      }
+    ).then(() => setQuery({ name: "", email: "" }));
+  };
   return (
     <div>
-      {" "}
       <footer className="p-6 text-white">
         <div className="m-auto mb-6 w-full rounded-md bg-gradient-to-r from-blue-600 to-yellow-500 p-1 lg:w-3/5">
           <div
@@ -35,16 +61,25 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className="flex flex-col gap-8 text-center">
+        <div className="flex flex-col gap-6 text-center lg:gap-8">
           <p className="heading-2">Stay up to date</p>
-          <div className="flex w-full justify-center gap-2">
+          <form
+            className="flex w-full justify-center gap-2"
+            onSubmit={formSubmit}
+          >
             <input
-              className="input-text w-full lg:w-1/5"
-              type="text"
+              type="email"
+              name="email"
+              required
+              className="form-control input-text w-full lg:w-1/5"
               placeholder="Email address"
+              value={query.email}
+              onChange={handleParam()}
             />
-            <Button text={"APPLY"} onclick={NewsletterNotify} />
-          </div>
+            <button className="btn" type="submit">
+              Apply
+            </button>
+          </form>
           <p className="heading-2">Follow us on</p>
           <div className="flex justify-center gap-4">
             <Twitter />
@@ -53,9 +88,23 @@ export default function Footer() {
 
             <Instagram />
           </div>
-          <p className="text-gray-400">
-            Art Allocated 2022. All Rights Reserved.
-          </p>
+          <div>
+            <div className="m-auto mb-4 flex w-full flex-col justify-center gap-2 rounded-md bg-gray-800 p-4 lg:w-2/6 lg:flex-row lg:gap-6">
+              <a className="link-special">PRIVACY POLICY</a>
+              <a className="link-special">TERMS & CONDITIONS</a>
+            </div>
+            <div className="p-gray flex flex-col justify-center gap-2 lg:flex-row">
+              <p>
+                ©{" "}
+                <a className="link" href="https://art-allocated.me">
+                  {" "}
+                  Art Allocated
+                </a>{" "}
+                2022.{" "}
+              </p>
+              <p>All Rights Reserved.</p>
+            </div>
+          </div>
         </div>
       </footer>
       <FlagLine />

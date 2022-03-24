@@ -12,32 +12,72 @@ body {
   @apply bg-gray-900 font-body text-xl;
 }
 
+.cover {
+  @apply fixed top-0 right-0 bottom-0 left-0 z-20 bg-gray-800/60 backdrop-blur-xl;
+}
+
 .link {
   @apply hover:underline hover:duration-300 hover:ease-in;
 }
 
+.link-special {
+  @apply cursor-pointer text-lg hover:underline hover:underline-offset-4 md:text-xl;
+}
+
 .btn {
-  @apply rounded-md bg-white pt-4 pr-6 pb-4 pl-6 font-bold text-black hover:bg-gradient-to-r hover:from-blue-600 hover:to-yellow-500 hover:text-white hover:duration-300 hover:ease-in;
+  @apply rounded-md bg-white pt-2 pr-4 pb-2 pl-4  font-bold text-black hover:bg-gradient-to-r hover:from-blue-600 hover:to-yellow-500 hover:text-white hover:duration-300 hover:ease-in lg:pt-4 lg:pr-6 lg:pb-4 lg:pl-6;
+}
+
+.btn-round {
+  @apply rounded-full bg-white p-3 font-bold text-black hover:bg-gradient-to-r hover:from-blue-600 hover:to-yellow-500 hover:text-white hover:duration-300 hover:ease-in;
 }
 
 .special-hover {
-  @apply from-blue-600 to-yellow-500 duration-300 hover:bg-gradient-to-r hover:text-white hover:ease-in;
+  @apply cursor-pointer from-blue-600 to-yellow-500 duration-300 hover:bg-gradient-to-r hover:text-white hover:ease-in;
+}
+
+.bg-flag {
+  @apply border-2 bg-gradient-to-r from-blue-600/60 to-yellow-500/60 backdrop-blur-md;
+}
+
+.bg-blur {
+  @apply bg-gray-800/60 backdrop-blur-sm;
+}
+
+.svg-hover {
+  @apply hover:scale-110 hover:transition-transform hover:duration-300 hover:ease-in-out;
+}
+
+.textbox-hover {
+  @apply hover:z-10 hover:scale-110 hover:bg-gray-800 hover:duration-300 hover:ease-in-out;
+}
+
+.heading-special {
+  @apply w-4/5 pb-4 text-3xl font-bold text-white lg:w-3/5 lg:text-4xl;
 }
 
 .heading {
-  @apply w-4/5 border-b-8 pb-4 text-3xl font-bold text-white lg:w-3/5 lg:text-4xl;
+  @apply w-full border-b-8 pb-4 text-2xl font-bold text-white md:text-3xl lg:w-3/5 lg:text-4xl;
 }
 
 .heading-2 {
-  @apply text-3xl font-bold text-white lg:text-2xl;
+  @apply text-xl font-bold text-white md:text-2xl lg:text-3xl;
+}
+
+.heading-2-gray {
+  @apply text-2xl font-bold text-gray-900 lg:text-3xl;
 }
 
 .p-basic {
-  @apply text-2xl text-white;
+  @apply text-xl text-white lg:text-2xl;
+}
+
+.p-gray {
+  @apply text-lg text-gray-400 md:text-xl lg:text-2xl;
 }
 
 .p-bold {
-  @apply text-2xl font-bold text-white;
+  @apply text-xl font-bold text-white lg:text-2xl;
 }
 
 .form-higlight {
@@ -49,7 +89,15 @@ body {
 }
 
 .input-text {
-  @apply resize-none rounded-md bg-gray-800 p-3 text-white focus:outline-none focus:outline-blue-600;
+  @apply resize-none rounded-md bg-gray-800 p-2 text-white focus:outline-none focus:outline-blue-600 md:p-2 lg:p-3;
+}
+
+.snap-main {
+  @apply relative flex w-full snap-x snap-mandatory gap-8 overflow-x-auto pb-14 scrollbar-hide;
+}
+
+.snap-child {
+  @apply w-4/5 shrink-0 snap-center snap-always first:pl-8 last:pr-8;
 }
 
 .link-underline {
@@ -71,4 +119,39 @@ body {
 .link-underline:hover {
   background-size: 100% 3px;
   background-position: 0 100%;
+}
+
+/* MOBILE */
+
+.menu__item {
+  @apply p-2 text-3xl text-white;
+}
+
+.test {
+  opacity: 0;
+  transition: opacity 230ms ease;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(255 255 255);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(17 24 39);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ANIMATIONS */
+.intro {
 }

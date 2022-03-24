@@ -6,10 +6,14 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "header-image": "url('../src/img/header.jpg')",
-        "basic-image": "url('../src/img/example03.jpg')",
-        "rare-image": "url('../src/img/example04.jpg')",
-        "special-image": "url('../src/img/example05.jpg')",
+        "header-image": "url('/header-min.webp')",
+        "header-mobile-image": "url('/example03.webp')",
+        "basic-image": "url('/example03.webp')",
+        "rare-image": "url('/example04.webp')",
+        "special-image": "url('/example05.webp')",
+      },
+      backdropBlur: {
+        custom: "6px",
       },
     },
   },

@@ -1,21 +1,53 @@
-import React from "react";
+import { disableBodyScroll } from "body-scroll-lock";
+import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import Backdrop from "./Backdrop";
 import Button from "./Buttons/Button";
 
-export default function Popup({ heading, style, content, test }) {
+const dropIn = {
+  hidden: {
+    y: "100vh",
+    opacity: 0,
+  },
+  visible: {
+    y: "0",
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      damping: 40,
+      stiffness: 500,
+    },
+  },
+  exit: {
+    y: "100vh",
+    opacity: 0,
+  },
+};
+
+export default function Popup({ heading, style, content, closePopup }) {
+  useEffect(() => {
+    disableBodyScroll(document);
+  });
+
   return (
-    <div
-      className={`fixed top-0 right-0 bottom-0 left-0 z-20 bg-gray-800/60 backdrop-blur-xl ${test}`}
-    >
+    <Backdrop onClick={closePopup}>
       <div className="flex items-center justify-center">
-        <Button text={"CLOSE"} style={"m-6"} />
+        <Button text={"CLOSE"} style={"m-6"} onclick={closePopup} />
+        {/* <button onClick={closePopup}>Close</button> */}
       </div>
-      <div
+      <motion.div
         className={`m-auto w-full bg-gray-900 p-8 lg:w-2/4 lg:rounded-md ${style}`}
+        onClick={(e) => e.stopPropagation()}
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         <p className="heading h-center">{heading}</p>
         {/* Insert desired content */}
-        <div className="mt-2 p-4">{content}</div>
-      </div>
-    </div>
+        <div className="mt-2 p-2 lg:p-4">{content}</div>
+      </motion.div>
+    </Backdrop>
   );
 }

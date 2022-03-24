@@ -2,11 +2,11 @@ import React from "react";
 import ArrowLeft from "./Buttons/ArrowLeft";
 import ArrowRight from "./Buttons/ArrowRight";
 
-export default function GalleryControl() {
+export default function GalleryControl({ onclick, disabled, next, previous }) {
   return (
     <div className="flex justify-center gap-6">
-      <ArrowLeft />
-      <ArrowRight />
+      <ArrowLeft onclick={previous} disabled={disabled} />
+      <ArrowRight onclick={next} disabled={disabled} />
     </div>
   );
 }

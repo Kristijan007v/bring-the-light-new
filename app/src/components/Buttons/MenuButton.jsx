@@ -1,8 +1,12 @@
 import React from "react";
 
-export default function MenuButton() {
+export default function MenuButton({ openMenu, style }) {
   return (
-    <button>
+    <button
+      className={`${style} p-2 hover:rounded-full hover:bg-white hover:text-gray-900`}
+      onClick={openMenu}
+      aria-label="Open Menu Button"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6"
