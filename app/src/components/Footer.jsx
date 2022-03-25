@@ -7,7 +7,7 @@ import Instagram from "./Social/Instagram";
 import Button from "./Buttons/Button";
 import TextBox from "./TextBox";
 
-export default function Footer() {
+export default function Footer({ openPrivacy, openTerms }) {
   const [query, setQuery] = useState({
     name: "",
     email: "",
@@ -90,8 +90,12 @@ export default function Footer() {
           </div>
           <div>
             <div className="m-auto mb-4 flex w-full flex-col justify-center gap-2 rounded-md bg-gray-800 p-4 lg:w-2/6 lg:flex-row lg:gap-6">
-              <a className="link-special">PRIVACY POLICY</a>
-              <a className="link-special">TERMS & CONDITIONS</a>
+              <a className="link-special" onClick={openPrivacy}>
+                PRIVACY POLICY
+              </a>
+              <a className="link-special" onClick={openTerms}>
+                TERMS & CONDITIONS
+              </a>
             </div>
             <div className="p-gray flex flex-col justify-center gap-2 lg:flex-row">
               <p>

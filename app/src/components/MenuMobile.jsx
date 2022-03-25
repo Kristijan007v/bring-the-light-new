@@ -16,7 +16,6 @@ export default function MenuMobile({ style, state, closeMenu, openContact }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        {/* <p>Menu</p> */}
         <Button text={"Connect Wallet"} style={"mb-8"} />
         <ul className="text-center">
           <li className="menu__item link-underline">

@@ -1,4 +1,5 @@
 import React from "react";
+import MyErrorBoundary from "../MyErrorBoundary";
 
 export default function ArrowUp() {
   function GoUp() {
