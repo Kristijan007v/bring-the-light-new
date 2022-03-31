@@ -5,21 +5,20 @@ import Backdrop from "./Backdrop";
 import Button from "./Buttons/Button";
 import GalleryControl from "./GalleryControl";
 import GalleryImage from "./GalleryImage";
+import NewGallery from "./NewGallery";
 
 export default function Gallery() {
   /* IMAGE ASSETS */
   const images = [
-    { id: 1, src: "/example03.webp", description: "This is first an image." },
-    { id: 2, src: "/example04.webp", description: "This is second an image." },
-    { id: 3, src: "/example05.webp", description: "This is third an image." },
-    { id: 4, src: "/example06.webp", description: "This is fifth an image." },
-  ];
-
-  const desktopImages = [
-    { id: 1, src: "/header1.jpg", description: "This is first an image." },
-    { id: 1, src: "/header2.jpg", description: "This is second an image." },
-    { id: 1, src: "/header3.jpg", description: "This is third an image." },
-    { id: 1, src: "/header4.jpg", description: "This is fifth an image." },
+    { id: 1, src: "/example03.webp", description: "This is a first image." },
+    { id: 2, src: "/example04.webp", description: "This is a second image." },
+    {
+      id: 3,
+      src: "/example05.webp",
+      description:
+        "This is a third image. Lorem ipsummmmmmmmmmmmmmmmmm. Lorem ipsummmmmmmmmmmmmmmmmm. Lorem ipsummmmmmmmmmmmmmmmmm. Lorem ipsummmmmmmmmmmmmmmmmm.",
+    },
+    { id: 4, src: "/example06.webp", description: "This is a fifth image." },
   ];
 
   /* SHUFFLE GALLERY */
@@ -59,7 +58,7 @@ export default function Gallery() {
   const [imageDesc, setImageDesc] = useState("");
 
   /* IMAGE CONTROL */
-  const CollectionSize = desktopImages.length;
+  /* const CollectionSize = desktopImages.length;
   const goToNextPicture = () => {
     checkButton();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -68,7 +67,7 @@ export default function Gallery() {
   const goToPreviousPicture = () => {
     checkButton();
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  }; */
 
   const disableLeftButton = () => {
     if (index === CollectionSize + 1) {
@@ -114,7 +113,7 @@ export default function Gallery() {
       >
         <p className="heading mb-10 mt-10 text-center lg:text-left">Gallery</p>
 
-        <div class="relative flex w-full snap-x snap-mandatory gap-8 overflow-x-auto rounded-md pb-14 scrollbar-hide lg:hidden">
+        <div class="relative flex w-full snap-x snap-mandatory space-x-8 overflow-x-auto rounded-md pb-14 scrollbar-hide lg:hidden">
           <div class="shrink-0 snap-center">
             <div class="w-4 shrink-0 sm:w-48"></div>
           </div>
@@ -122,7 +121,7 @@ export default function Gallery() {
           {/* Mobile only */}
           {images &&
             images
-              .sort(() => randomImages())
+              /* .sort(() => randomImages()) */
               .map(({ id, src, description }) => {
                 return (
                   <GalleryImage
@@ -141,32 +140,9 @@ export default function Gallery() {
         </div>
       </div>
       {/* DESKTOP ONLY */}
-      <div className="m-auto hidden w-4/6 lg:block">
+      <div className="m-auto hidden lg:block">
         <p className="heading mt-10 text-center lg:text-left">Gallery</p>
-        <div className="grid-cols-2 items-center justify-center lg:grid lg:h-screen">
-          {desktopImages &&
-            desktopImages
-              .sort(() => randomImages())
-              .map(({ id, src, description }) => {
-                return (
-                  <div>
-                    <GalleryImage
-                      key={id}
-                      src={src}
-                      onclick={() => openImageModal({ id, src, description })}
-                      style={"w-auto h-auto"}
-                      alt={description}
-                    />
-                  </div>
-                );
-              })}
-          {/* <GalleryControl
-            nextImage={goToNextPicture}
-            previousImage={goToPreviousPicture}
-            disabledRight={rightButton}
-            disabledLeft={leftButton}
-          /> */}
-        </div>
+        <NewGallery />
       </div>
       {/* Gallery INFO POPUP */}
       <AnimatePresence>
@@ -177,7 +153,7 @@ export default function Gallery() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="mt-12"
+              className="m-6"
             >
               <GalleryImage
                 key={imageId}
@@ -189,7 +165,7 @@ export default function Gallery() {
             <div className="rounded-m d w-5/6 p-6 text-center text-white">
               <p>{imageDesc}</p>
             </div>
-            <Button text={"CLOSE"} onclick={closeImageModal} />
+            <Button text={"CLOSE"} onclick={closeImageModal} style={"m-4"} />
           </Backdrop>
         )}
       </AnimatePresence>

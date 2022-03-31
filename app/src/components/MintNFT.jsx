@@ -1,12 +1,7 @@
 import React from "react";
+import { MobileView } from "react-device-detect";
 import NFTCard from "./NFTCard";
 import TextBox from "./TextBox";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
 
 export default function MintNFT({ id, style }) {
   return (

@@ -16,7 +16,7 @@ export default function MenuMobile({ style, state, closeMenu, openContact }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <Button text={"Connect Wallet"} style={"mb-8"} />
+        <Button text={"Connect Wallet"} style={"mb-6"} />
         <ul className="text-center">
           <li className="menu__item link-underline">
             <a href="">Mint</a>
@@ -31,7 +31,7 @@ export default function MenuMobile({ style, state, closeMenu, openContact }) {
         <button className="menu__item link-underline" onClick={openContact}>
           Contact us
         </button>
-        <CloseButton style={"mt-8"} closeMenu={closeMenu} />
+        <CloseButton style={"mt-6"} closeMenu={closeMenu} />
       </motion.div>
     </AnimatePresence>
   );

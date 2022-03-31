@@ -1,10 +1,6 @@
+import { clearAllBodyScrollLocks } from "body-scroll-lock";
 import React from "react";
 import TextBox from "./TextBox";
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from "body-scroll-lock";
 
 class MyErrorBoundary extends React.Component {
   state = {

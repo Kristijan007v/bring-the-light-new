@@ -45,7 +45,7 @@ export default function NavBar({ openContact, openMenu }) {
             <a className="" href="/">
               BringTheLight
             </a>
-            <ul className="hidden gap-6 lg:flex">
+            <ul className="hidden space-x-6 lg:flex">
               <li>
                 <a className="link-underline" href="#mint-nfts">
                   Mint

@@ -1,9 +1,5 @@
 import React from "react";
-import header from "../img/header.jpg";
 import About from "./About";
-import Button from "./Buttons/Button";
-import NavBar from "./NavBar";
-import TextBox from "./TextBox";
 
 export default function Header() {
   return (
@@ -11,7 +7,7 @@ export default function Header() {
       <div className="h-screen w-full bg-opacity-10 bg-header-mobile-image bg-cover bg-fixed bg-center lg:bg-header-image">
         <div className="m-auto grid h-screen w-full grid-cols-1 content-center  gap-6 bg-gradient-to-r from-blue-600/60 to-yellow-500/60 p-6 text-white backdrop-blur-sm">
           <h1 className="h-center text-4xl font-bold lg:text-6xl">
-            Volim svoju Moni !
+            Bring The Light to Ukraine !
           </h1>
           <div className="h-center rounded-md border-2 bg-gray-600/60 p-6 backdrop-blur-md">
             <p>

@@ -11,6 +11,33 @@ const variants = {
   collapsed: { opacity: 0, height: 0, x: 30 },
 };
 
+const questions = [
+  {
+    question: "Is this a FAQ?",
+    answer: "Here goes the answer to the question.",
+  },
+  {
+    question: "Is this a FAQ?",
+    answer: "Here goes the answer to the question.",
+  },
+  {
+    question: "Is this a FAQ?",
+    answer: "Here goes the answer to the question.",
+  },
+  {
+    question: "Is this a FAQ?",
+    answer: "Here goes the answer to the question.",
+  },
+  {
+    question: "Is this a FAQ?",
+    answer: "Here goes the answer to the question.",
+  },
+  {
+    question: "Is this a FAQ?",
+    answer: "Here goes the answer to the question.",
+  },
+];
+
 export default function FAQ({ text }) {
   const [faq, setFaq] = useState(false);
 
@@ -27,9 +54,9 @@ export default function FAQ({ text }) {
       <div
         className={`rounded-md ${
           faq == "true" ? "bg-white" : "bg-gray-800"
-        } p-4`}
+        } p-3 lg:p-4`}
       >
-        <div className="flex items-center justify-between text-gray-300">
+        <div className="flex items-center justify-between space-x-2 text-gray-300">
           <p>{text}</p>
           <button
             className="btn-round"
@@ -37,7 +64,7 @@ export default function FAQ({ text }) {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              class="h-4 w-4 lg:h-5 lg:w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -52,7 +79,7 @@ export default function FAQ({ text }) {
         <AnimatePresence>
           {faq && (
             <motion.div
-              className={`content mt-4 rounded-md bg-gray-600 p-6 text-white`}
+              className={`content mt-4 rounded-md bg-gray-600 p-4 text-white lg:p-6`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

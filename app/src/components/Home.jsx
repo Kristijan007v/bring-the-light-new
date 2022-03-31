@@ -1,24 +1,27 @@
 import {
+  clearAllBodyScrollLocks,
   disableBodyScroll,
   enableBodyScroll,
-  clearAllBodyScrollLocks,
 } from "body-scroll-lock";
-import React, { Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import ArrowUp from "./Buttons/ArrowUp";
 import Button from "./Buttons/Button";
-import MyErrorBoundary from "./MyErrorBoundary";
 import FAQ from "./FAQ";
 import Footer from "./Footer";
-const Gallery = React.lazy(() => import("./Gallery"));
 import Header from "./Header";
-const MenuMobile = React.lazy(() => import("./MenuMobile"));
+import Loader from "./Loader";
+import MenuMobile from "./MenuMobile";
 import MintNFT from "./MintNFT";
+import MyErrorBoundary from "./MyErrorBoundary";
 import NavBar from "./NavBar";
-const Popup = React.lazy(() => import("./Popup"));
+import NewGallery from "./NewGallery";
+import Twitter from "./Social/Twitter";
+import SocialShare from "./SocialShare";
 import TextBox from "./TextBox";
+const Gallery = React.lazy(() => import("./Gallery"));
+const Popup = React.lazy(() => import("./Popup"));
 
 function Home() {
   /* Clear all body locks on page load */
@@ -33,6 +36,8 @@ function Home() {
   const [showPrivacy, setShowPrivacy] = useState(false);
 
   const [showTerms, setShowTerms] = useState(false);
+
+  const [showSocial, setShowSocial] = useState(false);
 
   const close = () => {
     setModalOpen(false);
@@ -63,6 +68,16 @@ function Home() {
     enableBodyScroll(document);
   };
 
+  const closeSocial = () => {
+    setShowSocial(false);
+    disableBodyScroll(document);
+  };
+
+  const openSocial = () => {
+    setShowSocial(true);
+    enableBodyScroll(document);
+  };
+
   modalOpen ? enableBodyScroll(document) : disableBodyScroll(document);
 
   return (
@@ -78,16 +93,14 @@ function Home() {
 
       {/* Mobile Menu */}
       <MyErrorBoundary component={"Mobile navigation"}>
-        <Suspense fallback={<div>Loading...</div>}>
-          {showMenu && (
-            <MenuMobile
-              closeMenu={() => {
-                setshowMenu(!showMenu);
-              }}
-              openContact={open}
-            />
-          )}
-        </Suspense>
+        {showMenu && (
+          <MenuMobile
+            closeMenu={() => {
+              setshowMenu(!showMenu);
+            }}
+            openContact={open}
+          />
+        )}
       </MyErrorBoundary>
 
       {/* Header */}
@@ -97,7 +110,7 @@ function Home() {
 
       {/* Gallery */}
       <MyErrorBoundary component={"Gallery"}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader type={"custom"} />}>
           <Gallery />
         </Suspense>
       </MyErrorBoundary>
@@ -109,22 +122,22 @@ function Home() {
 
       {/* FAQ */}
       <MyErrorBoundary component={"FAQ"}>
-        <section className="mt-10 mb-10">
+        <section className="mt-10 mr-6 mb-10 ml-6">
           <h2 className="heading h-center">FAQ</h2>
-          <div className="m-auto mt-12 grid w-5/6 grid-cols-1 gap-4 lg:w-3/5 lg:grid-cols-2">
-            <div className="flex flex-col gap-4">
+          <div className="m-auto mt-12 grid w-full grid-cols-1 gap-4 lg:w-3/5 lg:grid-cols-2">
+            <div className="flex flex-col space-y-4">
               <FAQ text={"How are these images made?"} />
               <FAQ text={"How are these images made?"} />
               <FAQ text={"How are these images made?"} />
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col space-y-4">
               <FAQ text={"How are these images made?"} />
               <FAQ text={"How are these images made?"} />
               <FAQ text={"How are these images made?"} />
             </div>
           </div>
           <div className="mt-4 flex items-center justify-center">
-            <TextBox style={"w-5/6 lg:w-3/5"} type={"info"}>
+            <TextBox style={"w-full lg:w-3/5"} type={"info"}>
               If you have any further question feel free to ask using the{" "}
               <a className="cursor-pointer hover:underline" onClick={open}>
                 contact form.
@@ -136,7 +149,11 @@ function Home() {
 
       {/* Footer */}
       <MyErrorBoundary component={"Footer"}>
-        <Footer openPrivacy={openPrivacy} openTerms={openTerms} />
+        <Footer
+          openPrivacy={openPrivacy}
+          openTerms={openTerms}
+          openSocial={openSocial}
+        />
       </MyErrorBoundary>
 
       {/* Fixed buttons */}
@@ -146,7 +163,7 @@ function Home() {
 
       {/* Pop ups */}
       <MyErrorBoundary component={"Contact Us"}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader type={"default"} />}>
           <AnimatePresence
             // Disable any initial animations on children that
             // are present when the component is first rendered
@@ -173,6 +190,7 @@ function Home() {
                       Name:{" "}
                     </label>
                     <input
+                      required
                       className="input-text"
                       type="text"
                       name="name"
@@ -182,6 +200,7 @@ function Home() {
                       E-mail:
                     </label>
                     <input
+                      required
                       className="input-text"
                       type="text"
                       name="email"
@@ -191,6 +210,7 @@ function Home() {
                       Message:{" "}
                     </label>
                     <textarea
+                      required
                       className="input-text"
                       name="message"
                       id="message"
@@ -207,7 +227,7 @@ function Home() {
       </MyErrorBoundary>
 
       <MyErrorBoundary component={"Privacy policy"}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader type={"default"} />}>
           <AnimatePresence>
             {/* PRIVACY POLICY */}
             {showPrivacy && (
@@ -253,7 +273,7 @@ function Home() {
                 content={
                   <>
                     <TextBox>
-                      <div className="overflow-auto">
+                      <div>
                         Here goes the Terms & condition text. Lorem ipsum dolor
                         sit amet, consectetur adipisicing elit. Ullam, adipisci
                         possimus reprehenderit quae odio provident obcaecati at
@@ -279,6 +299,11 @@ function Home() {
             )}
           </AnimatePresence>
         </Suspense>
+      </MyErrorBoundary>
+
+      {/* Social Share */}
+      <MyErrorBoundary>
+        {showSocial && <SocialShare closeSocial={closeSocial} />}
       </MyErrorBoundary>
 
       {/* Mobile menu */}

@@ -1,42 +1,10 @@
 import React, { useState } from "react";
 import FlagLine from "./FlagLine";
-import toast, { Toaster } from "react-hot-toast";
 import Discord from "./Social/Discord";
-import Twitter from "./Social/Twitter";
 import Instagram from "./Social/Instagram";
-import Button from "./Buttons/Button";
-import TextBox from "./TextBox";
+import Twitter from "./Social/Twitter";
 
-export default function Footer({ openPrivacy, openTerms }) {
-  const [query, setQuery] = useState({
-    name: "",
-    email: "",
-  });
-
-  // Update inputs value
-  const handleParam = () => (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setQuery((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  // Form Submit function
-  const formSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    Object.entries(query).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-    fetch(
-      "https://getform.io/https://getform.io/f/4ca92670-a5be-4daa-ba6a-83eebcce170b",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).then(() => setQuery({ name: "", email: "" }));
-  };
+export default function Footer({ openPrivacy, openTerms, openSocial }) {
   return (
     <div>
       <footer className="p-6 text-white">
@@ -45,7 +13,7 @@ export default function Footer({ openPrivacy, openTerms }) {
             className={`border-grad relative rounded-md bg-gray-700 pt-14 pr-10 pb-14 pl-10 text-center`}
           >
             <p className="text-2xl">20.456 people have brought the light.</p>
-            <span className="absolute bottom-4 right-4">
+            <button onClick={openSocial} className="absolute bottom-4 right-4">
               <svg
                 width="22"
                 height="26"
@@ -58,30 +26,29 @@ export default function Footer({ openPrivacy, openTerms }) {
                   fill="#C4C4C4"
                 />
               </svg>
-            </span>
+            </button>
           </div>
         </div>
-        <div className="flex flex-col gap-6 text-center lg:gap-8">
+        <div className="flex flex-col space-y-6 text-center lg:space-y-8">
           <p className="heading-2">Stay up to date</p>
           <form
-            className="flex w-full justify-center gap-2"
-            onSubmit={formSubmit}
+            className="flex w-full justify-center space-x-2"
+            action="https://getform.io/f/4ca92670-a5be-4daa-ba6a-83eebcce170b"
+            method="POST"
           >
             <input
-              type="email"
+              type="text"
               name="email"
               required
               className="form-control input-text w-full lg:w-1/5"
               placeholder="Email address"
-              value={query.email}
-              onChange={handleParam()}
             />
             <button className="btn" type="submit">
               Apply
             </button>
           </form>
           <p className="heading-2">Follow us on</p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center space-x-4">
             <Twitter />
 
             <Discord />
@@ -89,7 +56,7 @@ export default function Footer({ openPrivacy, openTerms }) {
             <Instagram />
           </div>
           <div>
-            <div className="m-auto mb-4 flex w-full flex-col justify-center gap-2 rounded-md bg-gray-800 p-4 lg:w-2/6 lg:flex-row lg:gap-6">
+            <div className="m-auto mb-4 flex w-full flex-col justify-center space-x-2 rounded-md bg-gray-800 p-4 lg:w-2/6 lg:flex-row lg:space-x-6">
               <a className="link-special" onClick={openPrivacy}>
                 PRIVACY POLICY
               </a>

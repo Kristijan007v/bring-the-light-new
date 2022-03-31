@@ -1,7 +1,5 @@
 import React from "react";
-import header from "../img/header.jpg";
 import Button from "./Buttons/Button";
-import NavBar from "./NavBar";
 import TextBox from "./TextBox";
 
 export default function About() {

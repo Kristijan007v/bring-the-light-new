@@ -17,16 +17,17 @@ export default function TextBox({
   return (
     <MyErrorBoundary>
       <div
-        className={`m-2 rounded-md ${
+        className={`rounded-md ${
           specialHover == "yes" &&
           "textbox-hover cursor-pointer hover:bg-gray-800"
         } ${type == "special" ? bg : "bg-gray-800"} p-6 ${style} ${
-          type == "info" && "flex items-center gap-2 lg:gap-4"
-        } ${type == "question" && "flex items-center gap-2 lg:gap-4"} ${
-          type == "warning" && "flex items-center gap-2 bg-red-500 lg:gap-4"
+          type == "info" && "flex items-center space-x-2 lg:space-x-4"
+        } ${type == "question" && "flex items-center space-x-2 lg:space-x-4"} ${
+          type == "warning" &&
+          "flex items-center space-x-2 bg-red-500 lg:space-x-4"
         } ${
           type == "white" &&
-          "flex items-center gap-2 bg-white text-gray-900 lg:gap-4"
+          "flex items-center space-x-2 bg-white text-gray-900 lg:space-x-4"
         } `}
       >
         {type == "info" && (
@@ -87,7 +88,7 @@ export default function TextBox({
         <p
           className={` ${
             bg == "bg-white" ? "p-gray" : "p-basic"
-          } ${textColor} ${scroll == "true" && "overflow-auto"}`}
+          } ${textColor} ${scroll == "true" && "overflow-y-scroll"}`}
         >
           {text}
           {children}
