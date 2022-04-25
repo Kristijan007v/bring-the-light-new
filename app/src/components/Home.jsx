@@ -235,26 +235,24 @@ function Home() {
                 closePopup={closePrivacy}
                 heading={"Privacy policy"}
                 content={
-                  <>
-                    <TextBox scroll>
-                      Here goes the privacy policy text. Lorem ipsum dolor sit
-                      amet, consectetur adipisicing elit. Ullam, adipisci
-                      possimus reprehenderit quae odio provident obcaecati at
-                      totam odit nostrum sint nesciunt ducimus, quia aperiam
-                      quas delectus voluptate ratione qui? Doloribus impedit
-                      optio dolorem dignissimos, eveniet quae officia velit
-                      odio? Rem sed doloremque ratione. Blanditiis, iusto dolore
-                      ea illum numquam doloribus quidem. Corporis facilis neque
-                      eos saepe adipisci iure fuga ut quod, hic rem, libero
-                      molestiae dicta reiciendis enim id et aperiam optio
-                      voluptas corrupti consectetur sit vitae nulla, quidem
-                      odit. Reiciendis doloribus exercitationem voluptatibus
-                      odit, esse perferendis dolores neque corrupti nemo facere
-                      consectetur iure doloremque voluptates. Adipisci, debitis
-                      non. Ullam, tempore totam? Perferendis maxime quod veniam
-                      unde laudantium sunt tempora assumenda itaque ipsam.
-                    </TextBox>
-                  </>
+                  <TextBox scroll>
+                    Here goes the privacy policy text. Lorem ipsum dolor sit
+                    amet, consectetur adipisicing elit. Ullam, adipisci possimus
+                    reprehenderit quae odio provident obcaecati at totam odit
+                    nostrum sint nesciunt ducimus, quia aperiam quas delectus
+                    voluptate ratione qui? Doloribus impedit optio dolorem
+                    dignissimos, eveniet quae officia velit odio? Rem sed
+                    doloremque ratione. Blanditiis, iusto dolore ea illum
+                    numquam doloribus quidem. Corporis facilis neque eos saepe
+                    adipisci iure fuga ut quod, hic rem, libero molestiae dicta
+                    reiciendis enim id et aperiam optio voluptas corrupti
+                    consectetur sit vitae nulla, quidem odit. Reiciendis
+                    doloribus exercitationem voluptatibus odit, esse perferendis
+                    dolores neque corrupti nemo facere consectetur iure
+                    doloremque voluptates. Adipisci, debitis non. Ullam, tempore
+                    totam? Perferendis maxime quod veniam unde laudantium sunt
+                    tempora assumenda itaque ipsam.
+                  </TextBox>
                 }
               />
             )}

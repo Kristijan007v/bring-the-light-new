@@ -32,12 +32,12 @@ export default function Popup({ heading, style, content, closePopup }) {
 
   return (
     <Backdrop onClick={closePopup}>
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex items-center justify-center">
         <Button text={"CLOSE"} style={"m-6"} onclick={closePopup} />
         {/* <button onClick={closePopup}>Close</button> */}
       </div>
       <motion.div
-        className={`m-auto h-screen w-full bg-gray-900 p-8 lg:w-2/4 lg:rounded-md ${style}`}
+        className={`m-auto w-full bg-gray-900 p-8 lg:w-2/4 lg:rounded-md ${style}`}
         onClick={(e) => e.stopPropagation()}
         variants={dropIn}
         initial="hidden"
