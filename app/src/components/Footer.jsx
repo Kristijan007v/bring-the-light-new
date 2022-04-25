@@ -33,8 +33,8 @@ export default function Footer({ openPrivacy, openTerms, openSocial }) {
           <p className="heading-2">Stay up to date</p>
           <form
             className="flex w-full justify-center space-x-2"
-            action="https://getform.io/f/4ca92670-a5be-4daa-ba6a-83eebcce170b"
             method="POST"
+            data-netlify="true"
           >
             <input
               type="text"
