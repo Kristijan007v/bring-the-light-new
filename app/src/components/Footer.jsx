@@ -33,12 +33,12 @@ export default function Footer({ openPrivacy, openTerms, openSocial }) {
           <p className="heading-2">Stay up to date</p>
           <form
             className="flex w-full justify-center space-x-2"
-            method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
+            netlify
+            netlify-honeypot="bot-field"
+            hidden
             name="newsletter"
           >
-            <input type="hidden" name="newsletter-form" value="contact" />
+            <input type="hidden" name="newsletter-form" value="newsletter" />
             <input
               type="text"
               name="email"
