@@ -36,6 +36,7 @@ export default function Footer({ openPrivacy, openTerms, openSocial }) {
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            name="newsletter"
           >
             <input type="hidden" name="newsletter-form" value="contact" />
             <input
