@@ -117,7 +117,7 @@ function Home() {
 
       {/* MintNFTs */}
       <MyErrorBoundary component={"MintNFT"}>
-        <MintNFT id={"mint-nfts"} style={"mt-10"} />
+        <MintNFT id={"mint-nfts"} style={""} />
       </MyErrorBoundary>
 
       {/* FAQ */}
@@ -236,7 +236,7 @@ function Home() {
                 heading={"Privacy policy"}
                 content={
                   <>
-                    <TextBox scroll={"True"}>
+                    <TextBox scroll>
                       Here goes the privacy policy text. Lorem ipsum dolor sit
                       amet, consectetur adipisicing elit. Ullam, adipisci
                       possimus reprehenderit quae odio provident obcaecati at
@@ -272,7 +272,7 @@ function Home() {
                 heading={"Terms & condition"}
                 content={
                   <>
-                    <TextBox>
+                    <TextBox scroll>
                       <div>
                         Here goes the Terms & condition text. Lorem ipsum dolor
                         sit amet, consectetur adipisicing elit. Ullam, adipisci

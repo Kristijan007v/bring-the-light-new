@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Buttons/Button";
 import MyErrorBoundary from "./MyErrorBoundary";
 
 export default function TextBox({
@@ -13,11 +14,13 @@ export default function TextBox({
   specialHover,
   children,
   scroll,
+  button,
+  buttonText,
 }) {
   return (
     <MyErrorBoundary>
       <div
-        className={`rounded-md ${
+        className={` ${scroll && "h-screen overflow-y-scroll"} rounded-md ${
           specialHover == "yes" &&
           "textbox-hover cursor-pointer hover:bg-gray-800"
         } ${type == "special" ? bg : "bg-gray-800"} p-6 ${style} ${
@@ -88,12 +91,13 @@ export default function TextBox({
         <p
           className={` ${
             bg == "bg-white" ? "p-gray" : "p-basic"
-          } ${textColor} ${scroll == "true" && "overflow-y-scroll"}`}
+          } ${textColor} ${scroll == "true" && "overflow-visible"}`}
         >
           {text}
           {children}
         </p>
         {components}
+        {button == "yes" && <Button text={buttonText} style={"mt-4 w-full"} />}
       </div>
     </MyErrorBoundary>
   );

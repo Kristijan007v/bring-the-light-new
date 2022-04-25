@@ -12,7 +12,7 @@ export default function Footer({ openPrivacy, openTerms, openSocial }) {
           <div
             className={`border-grad relative rounded-md bg-gray-700 pt-14 pr-10 pb-14 pl-10 text-center`}
           >
-            <p className="text-2xl">20.456 people have brought the light.</p>
+            <p className="text-2xl">Share the light to everyone.</p>
             <button onClick={openSocial} className="absolute bottom-4 right-4">
               <svg
                 width="22"

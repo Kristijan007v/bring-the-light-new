@@ -84,7 +84,11 @@ export default function FAQ({ text }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <p>Here goes the answer to the question.</p>
+              <p className="h-32 overflow-y-scroll">
+                Here goes the answer to the question. Here goes the answer to
+                the question. Here goes the answer to the question. Here goes
+                the answer to the question.
+              </p>
             </motion.div>
           )}
         </AnimatePresence>

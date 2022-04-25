@@ -1,48 +1,50 @@
 import React from "react";
 import About from "./About";
+import Button from "./Buttons/Button";
+import TextBox from "./TextBox";
 
 export default function Header() {
   return (
-    <>
-      <div className="h-screen w-full bg-opacity-10 bg-header-mobile-image bg-cover bg-fixed bg-center lg:bg-header-image">
-        <div className="m-auto grid h-screen w-full grid-cols-1 content-center  gap-6 bg-gradient-to-r from-blue-600/60 to-yellow-500/60 p-6 text-white backdrop-blur-sm">
-          <h1 className="h-center text-4xl font-bold lg:text-6xl">
-            Bring The Light to Ukraine !
+    <div className="m-auto w-full xl:pt-16 xl:pb-16">
+      <div className="grid grid-cols-none items-center justify-center gap-0 xl:grid-cols-2 xl:gap-8">
+        <div className="m-0 flex  flex-col items-center justify-center lg:m-6">
+          <h1 className="mt-8 hidden text-left text-3xl font-bold text-white lg:block lg:text-center">
+            Bring The Light to Ukraine!
           </h1>
-          <div className="h-center rounded-md border-2 bg-gray-600/60 p-6 backdrop-blur-md">
-            <p>
-              Stunning NFT collection of Ukraine motives whose main goal is to
-              help the people of Ukraine by donating money from Minted NFTs.
-            </p>
-          </div>
-          <div class="scroll-down cursor-pointer">
-            <a
-              class="highlight flex justify-center text-base hover:no-underline lg:text-lg"
-              href="#about"
-              aria-label="Scroll down to find out more"
-            >
-              Scroll down to find out more
-            </a>
-            <a class="highlight" href="#about" aria-label="About me section">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="m-auto mt-4 h-6 w-6 animate-bounce lg:h-8 lg:w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
-                />
-              </svg>
-            </a>
+          <img
+            className="mt-0 w-full rounded-none lg:mt-6 lg:rounded-xl"
+            src="/header1.jpg"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div className="p-6 xl:p-0">
+          <h1 className="mt-8 mb-8 block text-left text-3xl font-bold text-white lg:hidden lg:text-center">
+            Bring The Light to Ukraine!
+          </h1>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <TextBox
+              heading={"About Project"}
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              button={"yes"}
+              buttonText={"Roadmap"}
+            />
+            <TextBox
+              heading={"Collection"}
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              button={"yes"}
+              buttonText={"Gallery"}
+            />
+            <TextBox
+              style={"md:col-span-2"}
+              heading={"How to mint?"}
+              text="Ovo je test."
+              button={"yes"}
+              buttonText={"Mint now"}
+            />
           </div>
         </div>
       </div>
-      <About />
-    </>
+    </div>
   );
 }

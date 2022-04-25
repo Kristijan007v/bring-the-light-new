@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { disableBodyScroll } from "body-scroll-lock";
 
 export default function Backdrop({ children, onClick }) {
   return (

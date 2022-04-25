@@ -32,12 +32,12 @@ export default function Popup({ heading, style, content, closePopup }) {
 
   return (
     <Backdrop onClick={closePopup}>
-      <div className="flex items-center justify-center">
+      <div className="flex h-screen items-center justify-center">
         <Button text={"CLOSE"} style={"m-6"} onclick={closePopup} />
         {/* <button onClick={closePopup}>Close</button> */}
       </div>
       <motion.div
-        className={`m-auto w-full bg-gray-900 p-8 lg:w-2/4 lg:rounded-md ${style}`}
+        className={`m-auto h-screen w-full bg-gray-900 p-8 lg:w-2/4 lg:rounded-md ${style}`}
         onClick={(e) => e.stopPropagation()}
         variants={dropIn}
         initial="hidden"
@@ -46,7 +46,7 @@ export default function Popup({ heading, style, content, closePopup }) {
       >
         <p className="heading h-center">{heading}</p>
         {/* Insert desired content */}
-        <div className="mt-2 p-2 lg:p-4">{content}</div>
+        <div className="mt-4 p-0 lg:p-4">{content}</div>
       </motion.div>
     </Backdrop>
   );

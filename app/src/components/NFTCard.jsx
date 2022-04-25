@@ -9,7 +9,7 @@ export default function NFTCard({
   style,
 }) {
   return (
-    <div className="sm:snap-child">
+    <div className="">
       {highlight == "yes" && (
         <p className="mb-4 text-center text-2xl font-bold text-blue-600">
           {highlightText}
