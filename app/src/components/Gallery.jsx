@@ -163,7 +163,7 @@ export default function Gallery() {
               />
             </motion.div>
             <div className="p-6">
-              <p className="h-32 overflow-y-auto text-center text-white">
+              <p className="max-h-fit overflow-y-auto text-center text-white">
                 {imageDesc}
               </p>
             </div>
