@@ -180,7 +180,12 @@ function Home() {
                 heading={"Contact us"}
                 closePopup={close}
                 content={
-                  <form className="flex flex-col gap-4" netlify>
+                  <form
+                    className="flex flex-col gap-4"
+                    method="POST"
+                    data-netlify="true"
+                    name="contact"
+                  >
                     <label className="heading-2" htmlFor="Name">
                       Name:{" "}
                     </label>
