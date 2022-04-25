@@ -20,7 +20,7 @@ export default function TextBox({
   return (
     <MyErrorBoundary>
       <div
-        className={` ${scroll && "h-96 overflow-y-scroll"} rounded-md ${
+        className={` ${scroll && "h-96 overflow-y-auto"} rounded-md ${
           specialHover == "yes" &&
           "textbox-hover cursor-pointer hover:bg-gray-800"
         } ${type == "special" ? bg : "bg-gray-800"} p-6 ${style} ${
