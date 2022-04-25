@@ -162,10 +162,11 @@ export default function Gallery() {
                 alt={imageDesc}
               />
             </motion.div>
-
-            <p className="ml-6 mb-6 mt-4 mr-6 h-32 overflow-y-scroll text-center text-white">
-              {imageDesc}
-            </p>
+            <div className="p-6">
+              <p className="h-32 overflow-y-auto text-center text-white">
+                {imageDesc}
+              </p>
+            </div>
 
             <Button text={"CLOSE"} onclick={closeImageModal} style={"m-4"} />
           </Backdrop>
